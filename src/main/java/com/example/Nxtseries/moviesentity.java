@@ -1,23 +1,35 @@
 package com.example.Nxtseries;
 
-
 import java.time.LocalDate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class moviesentity {
+public class MoviesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String genre;
+    private String genre; 
     private String poster;
     private boolean ispopular;
     private LocalDate releasedate;
+
+    public MoviesEntity(Long id, String title, String genre, String poster, boolean ispopular, LocalDate releasedate) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.poster = poster;
+        this.ispopular = ispopular;
+        this.releasedate = releasedate;
+    }
+
+    public MoviesEntity() {
+    }
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -54,13 +66,4 @@ public class moviesentity {
     public void setReleasedate(LocalDate releasedate) {
         this.releasedate = releasedate;
     }
-    public moviesentity(Long id, String title, String genre, String poster, boolean ispopular, LocalDate releasedate) {
-        this.id = id;
-        this.title = title;
-        this.genre = genre;
-        this.poster = poster;
-        this.ispopular = ispopular;
-        this.releasedate = releasedate;
-    }
-    
 }
